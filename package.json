@@ -6,7 +6,8 @@
   "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:develop": "dotenv nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,10 @@
   },
   "homepage": "https://github.com/gabrielrufino/PDFfromLink_Bot#readme",
   "devDependencies": {
+    "dotenv-cli": "^7.0.0",
     "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "grammy": "^1.14.1"
   }
 }
