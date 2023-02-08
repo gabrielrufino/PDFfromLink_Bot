@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/gabrielrufino/PDFfromLink_Bot/issues"
   },
-  "homepage": "https://github.com/gabrielrufino/PDFfromLink_Bot#readme"
+  "homepage": "https://github.com/gabrielrufino/PDFfromLink_Bot#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }
