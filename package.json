@@ -23,9 +23,12 @@
   "devDependencies": {
     "dotenv-cli": "^7.0.0",
     "nodemon": "^2.0.20",
-    "rimraf": "^4.1.2"
+    "rimraf": "^4.1.2",
+    "standard": "^17.0.0"
   },
   "dependencies": {
-    "grammy": "^1.14.1"
+    "grammy": "^1.14.1",
+    "pino": "^8.10.0",
+    "puppeteer": "^19.6.3"
   }
 }
