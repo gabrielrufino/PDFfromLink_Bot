@@ -19,11 +19,11 @@ jobs:
       - run: docker image build -t gabrielrufino/pdffromlink-bot:latest -t gabrielrufino/pdffromlink-bot:$(npm pkg get version | sed 's/"//g') .
       - run: docker login -u gabrielrufino -p ${{ secrets.DOCKER_HUB_TOKEN }}
       - run: docker image push -a gabrielrufino/pdffromlink-bot
-      - uses: peter-evans/dockerhub-description@v3
-        with:
-          username: gabrielrufino
-          password: ${{ secrets.DOCKER_HUB_TOKEN }}
-          repository: gabrielrufino/PDFfromLink_Bot
+      # - uses: peter-evans/dockerhub-description@v3
+      #   with:
+      #     username: gabrielrufino
+      #     password: ${{ secrets.DOCKER_HUB_TOKEN }}
+      #     repository: gabrielrufino/PDFfromLink_Bot
   deploy:
     runs-on: ubuntu-latest
     needs:
