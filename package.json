@@ -6,8 +6,11 @@
   "type": "module",
   "main": "src/index.js",
   "scripts": {
+    "lint": "npx standard .",
+    "lint:fix": "npm run lint -- --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "reinstall": "npx rimraf node_modules && npm ci",
+    "start": "node src/index.js",
     "start:develop": "dotenv nodemon src/index.js"
   },
   "repository": {

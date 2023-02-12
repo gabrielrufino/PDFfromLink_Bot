@@ -6,9 +6,10 @@ import { Bot, InputFile } from 'grammy'
 import puppeteer from 'puppeteer'
 
 import { logger } from './logger.js'
+import { isRequired } from './helpers/is-required.js'
 
 const {
-  BOT_TOKEN
+  BOT_TOKEN = isRequired('BOT_TOKEN')
 } = process.env
 
 const bot = new Bot(BOT_TOKEN)
