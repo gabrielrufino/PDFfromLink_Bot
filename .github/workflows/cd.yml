@@ -40,6 +40,9 @@ jobs:
           password: ${{ secrets.SERVER_SSH_PASSWORD }}
           envs: BOT_TOKEN
           script: |
+            docker container stop pdffromlink-bot || false
+            docker container rm pdffromlink-bot || false
+            docker image prune -a -f
             docker container run \
               -e BOT_TOKEN=$BOT_TOKEN \
               --name pdffromlink-bot \

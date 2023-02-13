@@ -18,7 +18,9 @@ bot.command('start', context => context.reply('Welcome to PDFfromLink! Send a li
 bot.on('message', async context => {
   const { text } = context.message
 
-  const browser = await puppeteer.launch()
+  const browser = await puppeteer.launch({
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  })
 
   const page = await browser.newPage()
   await page.goto(text)
