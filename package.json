@@ -1,7 +1,7 @@
 {
   "name": "@pdffromlink/bot",
   "private": true,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "type": "module",
   "main": "src/index.js",
@@ -30,8 +30,9 @@
     "standard": "^17.0.0"
   },
   "dependencies": {
+    "@gabrielrufino/is-required": "^1.0.2",
     "grammy": "^1.14.1",
     "pino": "^8.10.0",
-    "puppeteer": "^19.6.3"
+    "puppeteer": "^19.7.0"
   }
 }

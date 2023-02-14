@@ -3,13 +3,13 @@ import os from 'node:os'
 import path from 'node:path'
 
 import { Bot, InputFile } from 'grammy'
+import { isRequired } from '@gabrielrufino/is-required'
 import puppeteer from 'puppeteer'
 
 import { logger } from './logger.js'
-import { isRequired } from './helpers/is-required.js'
 
 const {
-  BOT_TOKEN = isRequired('BOT_TOKEN')
+  BOT_TOKEN = isRequired({ param: 'BOT_TOKEN' })
 } = process.env
 
 const bot = new Bot(BOT_TOKEN)
@@ -19,7 +19,7 @@ bot.on('message', async context => {
   const { text } = context.message
 
   const browser = await puppeteer.launch({
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
   })
 
   const page = await browser.newPage()
