@@ -6,13 +6,18 @@ import { Bot, InputFile } from 'grammy'
 import { isRequired } from '@gabrielrufino/is-required'
 import puppeteer from 'puppeteer'
 
+import { database } from './database.js'
 import { logger } from './logger.js'
+import { RequestRepository } from './repositories/request.repository.js'
 
 const {
   BOT_TOKEN = isRequired({ param: 'BOT_TOKEN' })
 } = process.env
 
 const bot = new Bot(BOT_TOKEN)
+const requestRepository = new RequestRepository({
+  database
+})
 
 bot.command('start', context => context.reply('Welcome to PDFfromLink! Send a link and receive the PDF.'))
 bot.on('message', async context => {
@@ -23,7 +28,9 @@ bot.on('message', async context => {
   })
 
   const page = await browser.newPage()
-  await page.goto(text)
+  await page.goto(text, {
+    waitUntil: 'networkidle0'
+  })
 
   const folder = await fs.mkdtemp(path.join(os.tmpdir(), 'pdffromlink-'))
   const filePath = path.join(folder, 'file.pdf')
@@ -33,7 +40,8 @@ bot.on('message', async context => {
 
   await Promise.all([
     browser.close(),
-    context.replyWithDocument(new InputFile(filePath, `${title}.pdf`))
+    context.replyWithDocument(new InputFile(filePath, `${title}.pdf`)),
+    requestRepository.create({ context: JSON.parse(JSON.stringify(context)) })
   ])
 
   logger.info({ context })
