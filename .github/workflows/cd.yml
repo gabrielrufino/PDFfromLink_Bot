@@ -46,7 +46,7 @@ jobs:
             docker image prune -a -f
             docker container run \
               -e BOT_TOKEN=$BOT_TOKEN \
-              -e DATABASE_URI=$DATABASE_URI
+              -e DATABASE_URI=$DATABASE_URI \
               --name pdffromlink-bot \
               --restart always \
               -d \
