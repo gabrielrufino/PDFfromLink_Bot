@@ -37,6 +37,7 @@
   "dependencies": {
     "@gabrielrufino/is-required": "^1.0.3",
     "grammy": "^1.14.1",
+    "mongodb": "^5.0.1",
     "pino": "^8.10.0",
     "puppeteer": "^19.7.1"
   }
