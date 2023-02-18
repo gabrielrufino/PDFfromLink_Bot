@@ -30,9 +30,9 @@
     "standard": "^17.0.0"
   },
   "dependencies": {
-    "@gabrielrufino/is-required": "^1.0.2",
+    "@gabrielrufino/is-required": "^1.0.3",
     "grammy": "^1.14.1",
     "pino": "^8.10.0",
-    "puppeteer": "^19.7.0"
+    "puppeteer": "^19.7.1"
   }
 }
