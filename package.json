@@ -3,6 +3,11 @@
   "private": true,
   "version": "0.0.4",
   "description": "Generates a PDF file from a link",
+  "keywords": [
+    "bot",
+    "pdf",
+    "telegram"
+  ],
   "type": "module",
   "main": "src/index.js",
   "scripts": {
