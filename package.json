@@ -2,7 +2,7 @@
   "name": "@pdffromlink/bot",
   "private": true,
   "version": "0.0.4",
-  "description": "",
+  "description": "Generates a PDF file from a link",
   "type": "module",
   "main": "src/index.js",
   "scripts": {
