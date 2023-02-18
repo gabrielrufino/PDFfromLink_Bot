@@ -33,18 +33,20 @@ jobs:
         uses: appleboy/ssh-action@v0.1.7
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          DATABASE_URI: ${{ secrets.DATABASE_URI }}
         with:
           host: ${{ secrets.SERVER_SSH_HOST }}
           port: ${{ secrets.SERVER_SSH_PORT }}
           username: ${{ secrets.SERVER_SSH_USER }}
           password: ${{ secrets.SERVER_SSH_PASSWORD }}
-          envs: BOT_TOKEN
+          envs: BOT_TOKEN,DATABASE_URI
           script: |
             docker container stop pdffromlink-bot || false
             docker container rm pdffromlink-bot || false
             docker image prune -a -f
             docker container run \
               -e BOT_TOKEN=$BOT_TOKEN \
+              -e DATABASE_URI=$DATABASE_URI
               --name pdffromlink-bot \
               --restart always \
               -d \
