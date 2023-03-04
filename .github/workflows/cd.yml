@@ -9,29 +9,52 @@ on:
       - main
 
 jobs:
-  publish:
-    name: Publish on Docker Hub
+  version:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - id: extract
+        run: echo version=$(npm pkg get version | sed 's/"//g') >> "$GITHUB_OUTPUT"
+    outputs:
+      version:  ${{ steps.extract.outputs.version }}
+  build:
+    runs-on: ubuntu-latest
+    needs:
+      - version
+    env:
+      VERSION: ${{ needs.version.outputs.version }}
     steps:
       - uses: actions/checkout@v3
       - uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
-      - run: docker image build -t gabrielrufino/pdffromlink-bot:latest -t gabrielrufino/pdffromlink-bot:$(npm pkg get version | sed 's/"//g') .
-      - run: docker login -u gabrielrufino -p ${{ secrets.DOCKER_HUB_TOKEN }}
-      - run: docker image push -a gabrielrufino/pdffromlink-bot
-      - uses: peter-evans/dockerhub-description@v3
+      - run: |
+          docker image build \
+            -t pdffromlink-bot:latest \
+            -t pdffromlink-bot:$VERSION \
+            .
+      - run: |
+          docker image save \
+            -o pdffromlink-bot.tar \
+            pdffromlink-bot:latest \
+            pdffromlink-bot:$VERSION
+      - uses: appleboy/scp-action@v0.1.3
         with:
-          username: gabrielrufino
-          password: ${{ secrets.DOCKER_HUB_TOKEN }}
-          repository: gabrielrufino/PDFfromLink_Bot
+          host: ${{ secrets.SERVER_SSH_HOST }}
+          port: ${{ secrets.SERVER_SSH_PORT }}
+          username: ${{ secrets.SERVER_SSH_USER }}
+          password: ${{ secrets.SERVER_SSH_PASSWORD }}
+          source: pdffromlink-bot.tar
+          target: /home
   deploy:
     runs-on: ubuntu-latest
     needs:
-      - publish
+      - version
+      - build
     steps:
       - name: Deploy using SSH
         uses: appleboy/ssh-action@v0.1.7
         env:
+          VERSION: ${{ needs.version.outputs.version }}
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           DATABASE_URI: ${{ secrets.DATABASE_URI }}
         with:
@@ -39,8 +62,11 @@ jobs:
           port: ${{ secrets.SERVER_SSH_PORT }}
           username: ${{ secrets.SERVER_SSH_USER }}
           password: ${{ secrets.SERVER_SSH_PASSWORD }}
-          envs: BOT_TOKEN,DATABASE_URI
+          envs: VERSION,BOT_TOKEN,DATABASE_URI
           script: |
+            cd /home
+            docker load -i pdffromlink-bot.tar
+            rm pdffromlink-bot.tar
             docker container stop pdffromlink-bot || false
             docker container rm pdffromlink-bot || false
             docker image prune -a -f
@@ -50,4 +76,4 @@ jobs:
               --name pdffromlink-bot \
               --restart always \
               -d \
-              gabrielrufino/pdffromlink-bot
+              pdffromlink-bot:$VERSION
