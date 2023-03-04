@@ -69,7 +69,6 @@ jobs:
             rm pdffromlink-bot.tar
             docker container stop pdffromlink-bot || false
             docker container rm pdffromlink-bot || false
-            docker image prune -a -f
             docker container run \
               -e BOT_TOKEN=$BOT_TOKEN \
               -e DATABASE_URI=$DATABASE_URI \
@@ -77,3 +76,4 @@ jobs:
               --restart always \
               -d \
               pdffromlink-bot:$VERSION
+            docker image prune -a -f
