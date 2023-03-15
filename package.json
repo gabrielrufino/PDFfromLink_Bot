@@ -1,7 +1,7 @@
 {
   "name": "@pdffromlink/bot",
   "private": true,
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Generates a PDF file from a link",
   "keywords": [
     "bot",
@@ -29,16 +29,16 @@
   },
   "homepage": "https://github.com/gabrielrufino/PDFfromLink_Bot#readme",
   "devDependencies": {
-    "dotenv-cli": "^7.0.0",
+    "dotenv-cli": "^7.1.0",
     "nodemon": "^2.0.21",
     "rimraf": "^4.2.0",
     "standard": "^17.0.0"
   },
   "dependencies": {
     "@gabrielrufino/is-required": "^1.0.4",
-    "grammy": "^1.14.1",
+    "grammy": "^1.15.3",
     "mongodb": "^5.1.0",
     "pino": "^8.11.0",
-    "puppeteer": "^19.7.2"
+    "puppeteer": "^19.7.5"
   }
 }
