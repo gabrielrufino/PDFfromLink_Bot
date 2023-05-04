@@ -35,10 +35,10 @@
     "standard": "^17.0.0"
   },
   "dependencies": {
-    "@gabrielrufino/is-required": "^1.0.8",
-    "grammy": "^1.15.3",
-    "mongodb": "^5.3.0",
-    "pino": "^8.11.0",
-    "puppeteer": "^19.9.1"
+    "@gabrielrufino/is-required": "^1.0.9",
+    "grammy": "^1.16.0",
+    "mongodb": "^5.4.0",
+    "pino": "^8.12.1",
+    "puppeteer": "^19.11.1"
   }
 }
