@@ -16,7 +16,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "reinstall": "npx rimraf node_modules && npm ci",
     "start": "node -r dotenv/config src/index.js",
-    "start:develop": "nodemon --exec 'npm start'"
+    "start:dev": "nodemon --exec 'npm start'"
   },
   "repository": {
     "type": "git",
