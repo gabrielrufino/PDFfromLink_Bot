@@ -1,7 +1,7 @@
 {
   "name": "@pdffromlink/bot",
   "private": true,
-  "version": "2.0.4",
+  "version": "2.1.0",
   "description": "Generates a PDF file from a link",
   "keywords": [
     "bot",
@@ -15,8 +15,8 @@
     "lint:fix": "npm run lint -- --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "reinstall": "npx rimraf node_modules && npm ci",
-    "start": "node src/index.js",
-    "start:develop": "dotenv nodemon src/index.js"
+    "start": "node -r dotenv/config src/index.js",
+    "start:dev": "nodemon --exec 'npm start'"
   },
   "repository": {
     "type": "git",
@@ -29,16 +29,16 @@
   },
   "homepage": "https://github.com/gabrielrufino/PDFfromLink_Bot#readme",
   "devDependencies": {
-    "dotenv-cli": "^7.2.1",
     "nodemon": "^2.0.22",
     "rimraf": "^4.4.1",
     "standard": "^17.0.0"
   },
   "dependencies": {
     "@gabrielrufino/is-required": "^1.0.9",
+    "dotenv": "^16.0.3",
     "grammy": "^1.16.0",
-    "mongodb": "^5.4.0",
-    "pino": "^8.12.1",
+    "mongodb": "^5.5.0",
+    "pino": "^8.14.1",
     "puppeteer": "^19.11.1"
   }
 }

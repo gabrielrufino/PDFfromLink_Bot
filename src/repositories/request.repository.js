@@ -19,7 +19,8 @@ export class RequestRepository {
     context
   }) {
     return this.collection.insertOne({
-      context
+      context,
+      createdAt: new Date().toISOString()
     })
   }
 }
