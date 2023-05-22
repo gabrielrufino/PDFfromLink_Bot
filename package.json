@@ -36,7 +36,7 @@
   "dependencies": {
     "@gabrielrufino/is-required": "^1.0.9",
     "dotenv": "^16.0.3",
-    "grammy": "^1.16.0",
+    "grammy": "^1.16.1",
     "mongodb": "^5.5.0",
     "pino": "^8.14.1",
     "puppeteer": "^19.11.1"
