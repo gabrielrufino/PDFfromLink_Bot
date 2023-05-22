@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises'
+import module from 'node:module'
 import os from 'node:os'
 import path from 'node:path'
 
@@ -18,8 +19,11 @@ const bot = new Bot(BOT_TOKEN)
 const requestRepository = new RequestRepository({
   database
 })
+const require = module.createRequire(import.meta.url)
+const { version } = require('../package.json')
 
 bot.command('start', context => context.reply('Welcome to PDFfromLink! Send a link and receive the PDF.'))
+bot.command('version', context => context.reply(version))
 bot.on('message', async context => {
   const { text } = context.message
 
