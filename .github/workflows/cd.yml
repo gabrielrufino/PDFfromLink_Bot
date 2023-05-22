@@ -51,8 +51,7 @@ jobs:
       - version
       - build
     steps:
-      - name: Deploy using SSH
-        uses: appleboy/ssh-action@v0.1.7
+      - uses: appleboy/ssh-action@v0.1.10
         env:
           VERSION: ${{ needs.version.outputs.version }}
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
