@@ -41,10 +41,11 @@ bot.on('message', async context => {
   await page.pdf({ path: filePath })
 
   const title = await page.title()
+  const document = new InputFile(filePath, `${title}.pdf`)
 
   await Promise.all([
     browser.close(),
-    context.replyWithDocument(new InputFile(filePath, `${title}.pdf`)),
+    context.replyWithDocument(document),
     requestRepository.create({ context: JSON.parse(JSON.stringify(context)) })
   ])
 
