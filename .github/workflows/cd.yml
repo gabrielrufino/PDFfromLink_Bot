@@ -37,7 +37,7 @@ jobs:
             -o pdffromlink-bot.tar \
             pdffromlink-bot:latest \
             pdffromlink-bot:$VERSION
-      - uses: appleboy/scp-action@v0.1.4
+      - uses: appleboy/scp-action@v0.1.3
         with:
           host: ${{ secrets.SERVER_SSH_HOST }}
           port: ${{ secrets.SERVER_SSH_PORT }}
