@@ -1,5 +1,4 @@
 import fs from 'node:fs/promises'
-import module from 'node:module'
 import os from 'node:os'
 import path from 'node:path'
 
@@ -9,6 +8,8 @@ import puppeteer from 'puppeteer'
 
 import { database } from './database.js'
 import { logger } from './logger.js'
+import { start } from './commands/start.js'
+import { version } from './commands/version.js'
 import { RequestRepository } from './repositories/request.repository.js'
 
 const {
@@ -19,11 +20,9 @@ const bot = new Bot(BOT_TOKEN)
 const requestRepository = new RequestRepository({
   database
 })
-const require = module.createRequire(import.meta.url)
-const { version } = require('../package.json')
 
-bot.command('start', context => context.reply('Welcome to PDFfromLink! Send a link and receive the PDF.'))
-bot.command('version', context => context.reply(version))
+bot.command('start', start)
+bot.command('version', version)
 bot.on('message', async context => {
   const { text } = context.message
 
