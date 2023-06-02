@@ -3,9 +3,9 @@ import os from 'node:os'
 import path from 'node:path'
 
 import { InputFile } from 'grammy'
-import puppeteer from 'puppeteer'
 
 import { RequestRepository } from '../repositories/request.repository.js'
+import { browser } from '../browser.js'
 import { database } from '../database.js'
 import { logger } from '../logger.js'
 
@@ -15,10 +15,6 @@ const requestRepository = new RequestRepository({
 
 export const message = async context => {
   const { text } = context.message
-
-  const browser = await puppeteer.launch({
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
-  })
 
   const page = await browser.newPage()
   await page.goto(text, {
@@ -33,7 +29,7 @@ export const message = async context => {
   const document = new InputFile(filePath, `${title}.pdf`)
 
   await Promise.all([
-    browser.close(),
+    page.close(),
     context.replyWithDocument(document),
     requestRepository.create({ context: JSON.parse(JSON.stringify(context)) })
   ])
