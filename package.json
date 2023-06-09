@@ -40,5 +40,6 @@
     "mongodb": "^5.6.0",
     "pino": "^8.14.1",
     "puppeteer": "^20.5.0"
-  }
+  },
+  "funding": "https://github.com/sponsors/gabrielrufino"
 }
