@@ -4,10 +4,10 @@ export class RequestRepository {
    * @param {Object} params
    * @param {import('mongodb').Db} params.database
    */
-  constructor ({
-    database
+  constructor({
+    database,
   }) {
-    this.collection = database.collection('requests')
+    this.collection = database.collection('requests');
   }
 
   /**
@@ -15,12 +15,12 @@ export class RequestRepository {
    * @param {Object} params
    * @param {import('grammy').CommandContext<import('grammy').Context>} params.context
    */
-  async create ({
-    context
+  async create({
+    context,
   }) {
     return this.collection.insertOne({
       context,
-      createdAt: new Date().toISOString()
-    })
+      createdAt: new Date().toISOString(),
+    });
   }
 }

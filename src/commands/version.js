@@ -1,6 +1,6 @@
-import module from 'node:module'
+import module from 'node:module';
 
-const require = module.createRequire(import.meta.url)
-const { version: VERSION } = require('../../package.json')
+const require = module.createRequire(import.meta.url);
+const { version: VERSION } = require('../../package.json');
 
-export const version = context => context.reply(VERSION)
+export const version = (context) => context.reply(VERSION);
