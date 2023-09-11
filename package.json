@@ -1,7 +1,7 @@
 {
   "name": "@pdffromlink/bot",
   "private": true,
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "Generates a PDF file from a link",
   "keywords": [
     "bot",
