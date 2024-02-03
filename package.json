@@ -13,7 +13,7 @@
   "scripts": {
     "lint": "npx eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "reinstall": "npx rimraf node_modules && npm ci",
     "start": "node -r dotenv/config src/index.js",
     "start:dev": "nodemon --exec 'npm start'"
