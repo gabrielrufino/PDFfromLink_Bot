@@ -36,11 +36,11 @@
     "rimraf": "^5.0.5"
   },
   "dependencies": {
-    "@gabrielrufino/is-required": "^1.0.15",
-    "dotenv": "^16.3.1",
-    "grammy": "^1.19.2",
+    "@gabrielrufino/is-required": "^1.0.17",
+    "dotenv": "^16.4.1",
+    "grammy": "^1.20.3",
     "mongodb": "^5.9.2",
-    "pino": "^8.17.1",
+    "pino": "^8.18.0",
     "puppeteer": "^20.9.0"
   },
   "funding": "https://github.com/sponsors/gabrielrufino"
