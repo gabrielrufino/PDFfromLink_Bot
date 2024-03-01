@@ -30,17 +30,17 @@
   "homepage": "https://github.com/gabrielrufino/PDFfromLink_Bot#readme",
   "devDependencies": {
     "@gabrielrufino/eslint-config": "^1.6.0",
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "jest": "^29.7.0",
     "nodemon": "^2.0.22",
     "rimraf": "^5.0.5"
   },
   "dependencies": {
-    "@gabrielrufino/is-required": "^1.0.17",
-    "dotenv": "^16.4.1",
-    "grammy": "^1.20.3",
+    "@gabrielrufino/is-required": "^1.0.18",
+    "dotenv": "^16.4.5",
+    "grammy": "^1.21.1",
     "mongodb": "^5.9.2",
-    "pino": "^8.18.0",
+    "pino": "^8.19.0",
     "puppeteer": "^20.9.0"
   },
   "funding": "https://github.com/sponsors/gabrielrufino"
