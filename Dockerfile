@@ -1,14 +1,6 @@
-FROM node:18-alpine
+FROM ghcr.io/puppeteer/puppeteer:16.1.0
 
 WORKDIR /app
-
-RUN apk add --no-cache \
-      chromium \
-      nss \
-      freetype \
-      harfbuzz \
-      ca-certificates \
-      ttf-freefont
 
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 

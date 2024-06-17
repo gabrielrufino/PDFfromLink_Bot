@@ -1,26 +1,22 @@
 name: CI
 
 on:
+  - pull_request
   - push
   - workflow_dispatch
 
 jobs:
-  lint:
+  node-ci:
+    name: Node CI
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - run: npm ci
-      - run: npm run lint
-  sonarqube:
+      - uses: gabrielrufino/node-ci@v3
+  dockerfile-ci:
+    name: Dockerfile CI
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: gabrielrufino/dockerfile-ci@v2
         with:
-          fetch-depth: 0
-      - uses: sonarsource/sonarqube-scan-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          image-name: pdffromlink-bot

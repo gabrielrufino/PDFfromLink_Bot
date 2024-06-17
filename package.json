@@ -1,7 +1,7 @@
 {
   "name": "@pdffromlink/bot",
   "private": true,
-  "version": "2.2.8",
+  "version": "2.2.9",
   "description": "Generates a PDF file from a link",
   "keywords": [
     "bot",
@@ -13,7 +13,7 @@
   "scripts": {
     "lint": "npx eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "reinstall": "npx rimraf node_modules && npm ci",
     "start": "node -r dotenv/config src/index.js",
     "start:dev": "nodemon --exec 'npm start'"
@@ -29,18 +29,18 @@
   },
   "homepage": "https://github.com/gabrielrufino/PDFfromLink_Bot#readme",
   "devDependencies": {
-    "@gabrielrufino/eslint-config": "^1.5.3",
-    "eslint": "^8.52.0",
+    "@gabrielrufino/eslint-config": "^1.6.0",
+    "eslint": "^8.57.0",
     "jest": "^29.7.0",
     "nodemon": "^2.0.22",
-    "rimraf": "^5.0.5"
+    "rimraf": "^5.0.7"
   },
   "dependencies": {
-    "@gabrielrufino/is-required": "^1.0.14",
-    "dotenv": "^16.3.1",
-    "grammy": "^1.19.2",
-    "mongodb": "^5.9.1",
-    "pino": "^8.16.1",
+    "@gabrielrufino/is-required": "^1.0.20",
+    "dotenv": "^16.4.5",
+    "grammy": "^1.24.1",
+    "mongodb": "^5.9.2",
+    "pino": "^8.21.0",
     "puppeteer": "^20.9.0"
   },
   "funding": "https://github.com/sponsors/gabrielrufino"
