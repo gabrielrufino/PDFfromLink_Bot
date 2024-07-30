@@ -37,9 +37,9 @@
     "@gabrielrufino/is-required": "^1.0.20",
     "dotenv": "^16.4.5",
     "grammy": "^1.27.0",
-    "mongodb": "^5.9.2",
+    "mongodb": "^6.8.0",
     "pino": "^8.21.0",
-    "puppeteer": "^20.9.0"
+    "puppeteer": "^22.14.0"
   },
   "funding": "https://github.com/sponsors/gabrielrufino"
 }
