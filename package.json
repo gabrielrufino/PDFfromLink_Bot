@@ -36,10 +36,10 @@
   "dependencies": {
     "@gabrielrufino/is-required": "^1.0.20",
     "dotenv": "^16.4.5",
-    "grammy": "^1.27.0",
+    "grammy": "^1.28.0",
     "mongodb": "^6.8.0",
     "pino": "^8.21.0",
-    "puppeteer": "^22.14.0"
+    "puppeteer": "^22.15.0"
   },
   "funding": "https://github.com/sponsors/gabrielrufino"
 }
