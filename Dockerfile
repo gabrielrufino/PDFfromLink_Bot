@@ -1,9 +1,9 @@
-FROM ghcr.io/puppeteer/puppeteer:22.15.0
+FROM ghcr.io/puppeteer/puppeteer:22
 
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci --only=production
+RUN npm ci --omit=dev
 COPY . .
 
 CMD [ "npm", "start" ]
