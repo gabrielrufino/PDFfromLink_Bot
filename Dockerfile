@@ -1,11 +1,9 @@
-FROM ghcr.io/puppeteer/puppeteer:16.1.0
+FROM ghcr.io/puppeteer/puppeteer:22
 
 WORKDIR /app
 
-ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
-
 COPY package*.json ./
-RUN npm ci --only=production
+RUN npm ci --omit=dev
 COPY . .
 
 CMD [ "npm", "start" ]
