@@ -29,15 +29,15 @@
   "homepage": "https://github.com/gabrielrufino/PDFfromLink_Bot#readme",
   "devDependencies": {
     "@gabrielrufino/eslint-config": "^1.6.0",
-    "eslint": "^8.57.0",
+    "eslint": "^8.57.1",
     "jest": "^29.7.0",
     "nodemon": "^2.0.22"
   },
   "dependencies": {
     "@gabrielrufino/is-required": "^1.0.20",
     "dotenv": "^16.4.5",
-    "grammy": "^1.28.0",
-    "mongodb": "^6.8.0",
+    "grammy": "^1.30.0",
+    "mongodb": "^6.9.0",
     "pino": "^8.21.0",
     "puppeteer": "^22.15.0"
   },
