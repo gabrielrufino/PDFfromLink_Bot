@@ -1,7 +1,7 @@
 {
   "name": "@pdffromlink/bot",
   "private": true,
-  "version": "2.2.12",
+  "version": "2.2.13",
   "description": "Generates a PDF file from a link",
   "keywords": [
     "bot",
@@ -36,8 +36,8 @@
   "dependencies": {
     "@gabrielrufino/is-required": "^1.0.20",
     "dotenv": "^16.4.5",
-    "grammy": "^1.30.0",
-    "mongodb": "^6.9.0",
+    "grammy": "^1.32.0",
+    "mongodb": "^6.11.0",
     "pino": "^8.21.0",
     "puppeteer": "^22.15.0"
   },
